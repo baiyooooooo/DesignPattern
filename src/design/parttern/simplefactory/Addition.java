@@ -1,6 +1,6 @@
 package design.parttern.simplefactory;
 
-public final class Addition implements Operation{
+public final class Addition implements IOperation{
 
 	@Override
 	public double execute(double addends, double addend) {

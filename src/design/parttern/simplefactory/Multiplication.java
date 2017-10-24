@@ -1,6 +1,6 @@
 package design.parttern.simplefactory;
 
-public final class Multiplication implements Operation{
+public final class Multiplication implements IOperation{
 
 	@Override
 	public double execute(double byMultiplier, double multiplier) {

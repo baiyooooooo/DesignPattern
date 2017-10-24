@@ -1,6 +1,6 @@
 package design.parttern.simplefactory;
 
-public final class Division implements Operation {
+public final class Division implements IOperation {
 
 	@Override
 	public double execute(double dividend, double divisor) {

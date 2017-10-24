@@ -34,7 +34,7 @@ public class OperationFactory {
 	 * 
 	 * and you have to force conversion new instance to the aim object
 	 */
-	public static Object getOperationObject(Class<? extends Operation> oObj) {
+	public static Object getOperationObject(Class<? extends IOperation> oObj) {
 		Object oOperation = null;
 		try {
 			oOperation = Class.forName(oObj.getName()).newInstance();

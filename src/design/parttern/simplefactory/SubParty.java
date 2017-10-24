@@ -1,6 +1,6 @@
 package design.parttern.simplefactory;
 
-public final class SubParty implements Operation {
+public final class SubParty implements IOperation {
 
 	@Override
 	public double execute(double base, double times) {

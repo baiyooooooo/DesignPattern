@@ -1,6 +1,6 @@
 package design.parttern.simplefactory;
 
-public final class Subtraction implements Operation{
+public final class Subtraction implements IOperation{
 
 	@Override
 	public double execute(double bing, double meiosis) {
