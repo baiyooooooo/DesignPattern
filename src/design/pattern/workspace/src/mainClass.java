@@ -1,7 +1,8 @@
 package design.pattern.workspace.src;
 
-import design.parttern.simplefactory.*;
 import design.pattern.abstractfactory.*;
+import design.pattern.prototype.*;
+import design.pattern.simplefactory.*;
 
 public class mainClass {
 
@@ -24,6 +25,17 @@ public class mainClass {
 		IDataBaseFactory sQLServerFactory = new SQLServerFactory();
 		IUser sQLServerUser = sQLServerFactory.getUser();
 		System.out.println(sQLServerUser.getUserId());
+		
+		ResumeForAlibaba oResumeForAlibaba = new ResumeForAlibaba();
+		oResumeForAlibaba.setName("Bai Yubo");
+		oResumeForAlibaba.setCellPhone("18817368100");
+		System.out.println("Name: " + oResumeForAlibaba.getName() +
+				", Cell Phone: " + oResumeForAlibaba.getCellPhone());
+		
+		ResumeForAlibaba oResume = (ResumeForAlibaba) oResumeForAlibaba.clone();
+		oResume.setName("Yubo Bai");
+		System.out.println("Name: " + oResume.getName() +
+				", Cell Phone: " + oResume.getCellPhone());
 
 	}
 

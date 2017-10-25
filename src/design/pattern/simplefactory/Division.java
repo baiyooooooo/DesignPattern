@@ -1,4 +1,4 @@
-package design.parttern.simplefactory;
+package design.pattern.simplefactory;
 
 public final class Division implements IOperation {
 
