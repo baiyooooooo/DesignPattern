@@ -27,15 +27,24 @@ public class mainClass {
 		System.out.println(sQLServerUser.getUserId());
 		
 		ResumeForAlibaba oResumeForAlibaba = new ResumeForAlibaba();
+		WorkExperience workExperience = new WorkExperience();
+		workExperience.setCompany("SAP");
+		workExperience.setProjectName("GTS");
 		oResumeForAlibaba.setName("Bai Yubo");
 		oResumeForAlibaba.setCellPhone("18817368100");
+		oResumeForAlibaba.setWorkExperience(workExperience);
 		System.out.println("Name: " + oResumeForAlibaba.getName() +
-				", Cell Phone: " + oResumeForAlibaba.getCellPhone());
+				", Cell Phone: " + oResumeForAlibaba.getCellPhone() + 
+				", Work Experience: Company: " + oResumeForAlibaba.getWorkExperience().getCompany() +
+				", Work Experience: Project: " + oResumeForAlibaba.getWorkExperience().getProjectName());
 		
 		ResumeForAlibaba oResume = (ResumeForAlibaba) oResumeForAlibaba.clone();
 		oResume.setName("Yubo Bai");
 		System.out.println("Name: " + oResume.getName() +
-				", Cell Phone: " + oResume.getCellPhone());
+				", Cell Phone: " + oResume.getCellPhone() +
+				", Work Experience: Company: " + oResume.getWorkExperience().getCompany() +
+				", Work Experience: Project: " + oResume.getWorkExperience().getProjectName());
+
 
 	}
 

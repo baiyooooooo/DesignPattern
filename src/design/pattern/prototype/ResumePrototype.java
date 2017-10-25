@@ -3,6 +3,7 @@ package design.pattern.prototype;
 public abstract class ResumePrototype implements Cloneable {
 	private String name;
 	private String cellPhone;
+	private WorkExperience workExperience;
 
 	public ResumePrototype() {
 
@@ -28,15 +29,23 @@ public abstract class ResumePrototype implements Cloneable {
 		this.cellPhone = cellPhone;
 	}
 
+	public WorkExperience getWorkExperience() {
+		return workExperience;
+	}
+
+	public void setWorkExperience(WorkExperience workExperience) {
+		this.workExperience = workExperience;
+	}
+
 	// Key method!
 	public Object clone() {
-		Object clone = null;
+		ResumePrototype clone = null;
 		try {
-			clone = super.clone();
+			clone = (ResumePrototype) super.clone();
+			clone.workExperience = (WorkExperience) this.workExperience.clone();
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
 		}
 		return clone;
-	};
-
+	}
 }
