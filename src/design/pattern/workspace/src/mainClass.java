@@ -1,6 +1,7 @@
 package design.pattern.workspace.src;
 
 import design.pattern.abstractfactory.*;
+import design.pattern.builder.*;
 import design.pattern.prototype.*;
 import design.pattern.simplefactory.*;
 
@@ -11,6 +12,7 @@ public class mainClass {
 		simpleFactoryTest();
 		abstractFactoryTest();
 		prototypeTest();
+		builderTest();
 	}
 
 	public static void simpleFactoryTest() {
@@ -55,6 +57,13 @@ public class mainClass {
 				+ ", Work Experience: Company: " + oResume.getWorkExperience().getCompany()
 				+ ", Work Experience: Project: " + oResume.getWorkExperience().getProjectName());
 
+	}
+	
+	public static void builderTest(){
+		ThinPersonBuilder oTPB = new ThinPersonBuilder();
+		PersonDirector oPD = new PersonDirector(oTPB);
+		oPD.createPerson();
+		System.out.println("Head:" + oTPB.getHead());
 	}
 
 }
