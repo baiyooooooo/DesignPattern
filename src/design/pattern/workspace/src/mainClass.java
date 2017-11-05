@@ -4,6 +4,7 @@ import design.pattern.abstractfactory.*;
 import design.pattern.builder.*;
 import design.pattern.prototype.*;
 import design.pattern.simplefactory.*;
+import design.pattern.strategy.*;
 
 public class mainClass {
 
@@ -13,6 +14,7 @@ public class mainClass {
 		abstractFactoryTest();
 		prototypeTest();
 		builderTest();
+		strategyTest("rebate");
 	}
 
 	public static void simpleFactoryTest() {
@@ -64,6 +66,14 @@ public class mainClass {
 		PersonDirector oPD = new PersonDirector(oTPB);
 		oPD.createPerson();
 		System.out.println("Head:" + oTPB.getHead());
+	}
+	
+	public static void strategyTest(String type){
+		double totalPrices = 12.34d;
+		
+		CashContext cc = new CashContext(type);
+		System.out.println(cc.getResult(totalPrices));
+		
 	}
 
 }
