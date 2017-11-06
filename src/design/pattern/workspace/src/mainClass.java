@@ -1,5 +1,6 @@
 package design.pattern.workspace.src;
 
+import design.pattern.ChainOfResponsibility.*;
 import design.pattern.abstractfactory.*;
 import design.pattern.builder.*;
 import design.pattern.prototype.*;
@@ -15,6 +16,7 @@ public class mainClass {
 		prototypeTest();
 		builderTest();
 		strategyTest("rebate");
+		chainOfResponsibility();
 	}
 
 	public static void simpleFactoryTest() {
@@ -73,7 +75,13 @@ public class mainClass {
 		
 		CashContext cc = new CashContext(type);
 		System.out.println(cc.getResult(totalPrices));
-		
+	}
+	
+	public static void chainOfResponsibility(){
+		Approver approver = new Approver();
+		System.out.println(approver.approveFee(2300));
+		System.out.println(approver.approveFee(4300));
+		System.out.println(approver.approveFee(40300));
 	}
 
 }
