@@ -6,6 +6,7 @@ import design.pattern.builder.*;
 import design.pattern.prototype.*;
 import design.pattern.simplefactory.*;
 import design.pattern.strategy.*;
+import design.pattern.visitor.*;
 
 public class mainClass {
 
@@ -17,6 +18,7 @@ public class mainClass {
 		builderTest();
 		strategyTest("rebate");
 		chainOfResponsibility();
+		visitor();
 	}
 
 	public static void simpleFactoryTest() {
@@ -82,6 +84,14 @@ public class mainClass {
 		System.out.println(approver.approveFee(2300));
 		System.out.println(approver.approveFee(4300));
 		System.out.println(approver.approveFee(40300));
+	}
+	
+	public static void visitor(){
+		ObjectStructure objectStructure = new ObjectStructure();
+		objectStructure.attach(new ConcreteAccepterA());
+		objectStructure.attach(new ConcreteAccepterB());
+		ConcreteVisitorA visitor = new ConcreteVisitorA();
+		objectStructure.startVisit(visitor);
 	}
 
 }
