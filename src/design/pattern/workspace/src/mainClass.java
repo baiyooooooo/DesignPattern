@@ -6,6 +6,8 @@ import design.pattern.builder.*;
 import design.pattern.prototype.*;
 import design.pattern.simplefactory.*;
 import design.pattern.strategy.*;
+import design.pattern.templatemethod.ConcreteClassA;
+import design.pattern.templatemethod.ConcreteClassB;
 import design.pattern.visitor.*;
 
 public class mainClass {
@@ -19,6 +21,7 @@ public class mainClass {
 		strategyTest("rebate");
 		chainOfResponsibility();
 		visitor();
+		templateMethod();
 	}
 
 	public static void simpleFactoryTest() {
@@ -64,34 +67,41 @@ public class mainClass {
 				+ ", Work Experience: Project: " + oResume.getWorkExperience().getProjectName());
 
 	}
-	
-	public static void builderTest(){
+
+	public static void builderTest() {
 		ThinPersonBuilder oTPB = new ThinPersonBuilder();
 		PersonDirector oPD = new PersonDirector(oTPB);
 		oPD.createPerson();
 		System.out.println("Head:" + oTPB.getHead());
 	}
-	
-	public static void strategyTest(String type){
+
+	public static void strategyTest(String type) {
 		double totalPrices = 12.34d;
-		
+
 		CashContext cc = new CashContext(type);
 		System.out.println(cc.getResult(totalPrices));
 	}
-	
-	public static void chainOfResponsibility(){
+
+	public static void chainOfResponsibility() {
 		Approver approver = new Approver();
 		System.out.println(approver.approveFee(2300));
 		System.out.println(approver.approveFee(4300));
 		System.out.println(approver.approveFee(40300));
 	}
-	
-	public static void visitor(){
+
+	public static void visitor() {
 		ObjectStructure objectStructure = new ObjectStructure();
 		objectStructure.attach(new ConcreteAccepterA());
 		objectStructure.attach(new ConcreteAccepterB());
 		ConcreteVisitorA visitor = new ConcreteVisitorA();
 		objectStructure.startVisit(visitor);
+	}
+
+	public static void templateMethod() {
+		ConcreteClassA concreteClassA = new ConcreteClassA();
+		ConcreteClassB concreteClassB = new ConcreteClassB();
+		concreteClassA.templateMethod();
+		concreteClassB.templateMethod();
 	}
 
 }
