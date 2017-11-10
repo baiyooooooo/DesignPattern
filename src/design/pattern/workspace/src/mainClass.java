@@ -3,6 +3,7 @@ package design.pattern.workspace.src;
 import design.pattern.ChainOfResponsibility.*;
 import design.pattern.abstractfactory.*;
 import design.pattern.builder.*;
+import design.pattern.iterator.*;
 import design.pattern.observer.*;
 import design.pattern.prototype.*;
 import design.pattern.simplefactory.*;
@@ -23,6 +24,7 @@ public class mainClass {
 		visitor();
 		templateMethod();
 		observer();
+		iterator();
 	}
 
 	public static void simpleFactoryTest() {
@@ -112,6 +114,24 @@ public class mainClass {
 		boss.addObserver(nbaObserver, "stopNBALive");
 		boss.addObserver(tvObserver, "stopTV");
 		boss.notifyObservers();
+	}
+	
+	public static void iterator(){
+		ConcreteAggregate aggregate = new ConcreteAggregate();
+		aggregate.setObject(0, "A1");
+		aggregate.setObject(1, "A2");
+		aggregate.setObject(2, "A3");
+		aggregate.setObject(3, "A4");
+		aggregate.setObject(4, "A5");
+		aggregate.setObject(5, "A6");
+		
+		Iterator i = new ConcreteIterator(aggregate);
+		Object item = i.first();
+		System.out.println("First item: " + item);
+		while (!i.isDone()){
+			System.out.println(i.CurrentItem());
+			i.next();
+		};
 	}
 
 }
