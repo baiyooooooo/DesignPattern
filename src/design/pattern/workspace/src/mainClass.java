@@ -3,11 +3,11 @@ package design.pattern.workspace.src;
 import design.pattern.ChainOfResponsibility.*;
 import design.pattern.abstractfactory.*;
 import design.pattern.builder.*;
+import design.pattern.observer.*;
 import design.pattern.prototype.*;
 import design.pattern.simplefactory.*;
 import design.pattern.strategy.*;
-import design.pattern.templatemethod.ConcreteClassA;
-import design.pattern.templatemethod.ConcreteClassB;
+import design.pattern.templatemethod.*;
 import design.pattern.visitor.*;
 
 public class mainClass {
@@ -22,6 +22,7 @@ public class mainClass {
 		chainOfResponsibility();
 		visitor();
 		templateMethod();
+		observer();
 	}
 
 	public static void simpleFactoryTest() {
@@ -102,6 +103,15 @@ public class mainClass {
 		ConcreteClassB concreteClassB = new ConcreteClassB();
 		concreteClassA.templateMethod();
 		concreteClassB.templateMethod();
+	}
+	
+	public static void observer(){
+		Boss boss = new Boss();
+		NBAObserver nbaObserver = new NBAObserver();
+		TVObserver tvObserver = new TVObserver();
+		boss.addObserver(nbaObserver, "stopNBALive");
+		boss.addObserver(tvObserver, "stopTV");
+		boss.notifyObservers();
 	}
 
 }
