@@ -1,8 +1,8 @@
-package design.pattern.ChainOfResponsibility;
+package design.pattern.chainofresponsibility;
 
-public class T1Manager extends Handler{
+public class T2Manager extends Handler{
 
-	public T1Manager(Handler superior) {
+	public T2Manager(Handler superior) {
 		super(superior);
 		// TODO Auto-generated constructor stub
 	}
@@ -11,8 +11,8 @@ public class T1Manager extends Handler{
 	public String handleFeeRequest(double fee) {
 		// TODO Auto-generated method stub
 		Handler superior = null;
-		if(fee <= 3000){
-			return "T1 manager approve.";
+		if(fee <= 10000){
+			return "T2 manager approve.";
 		} else {
 			superior = this.getSuperior();
 			if(superior != null){

@@ -1,4 +1,4 @@
-package design.pattern.ChainOfResponsibility;
+package design.pattern.chainofresponsibility;
 
 public abstract class Handler {
 	protected Handler superior = null;

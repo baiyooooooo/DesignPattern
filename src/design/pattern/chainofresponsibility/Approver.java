@@ -1,4 +1,4 @@
-package design.pattern.ChainOfResponsibility;
+package design.pattern.chainofresponsibility;
 
 public class Approver {
 	private T2Manager t2Manager = new T2Manager(null);

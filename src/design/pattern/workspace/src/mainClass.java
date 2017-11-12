@@ -1,8 +1,9 @@
 package design.pattern.workspace.src;
 
-import design.pattern.ChainOfResponsibility.*;
 import design.pattern.abstractfactory.*;
 import design.pattern.builder.*;
+import design.pattern.chainofresponsibility.*;
+import design.pattern.command.*;
 import design.pattern.iterator.*;
 import design.pattern.observer.*;
 import design.pattern.prototype.*;
@@ -25,6 +26,7 @@ public class mainClass {
 		templateMethod();
 		observer();
 		iterator();
+		command();
 	}
 
 	public static void simpleFactoryTest() {
@@ -132,6 +134,14 @@ public class mainClass {
 			System.out.println(i.CurrentItem());
 			i.next();
 		};
+	}
+	
+	public static void command(){
+		Receiver receiver = new Receiver();
+		Command command = new ConcreteCommand(receiver);
+		Invoker invoker = new Invoker();
+		invoker.setCommand(command);
+		invoker.executeCommand();
 	}
 
 }
