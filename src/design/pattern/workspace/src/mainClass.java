@@ -4,6 +4,7 @@ import design.pattern.abstractfactory.*;
 import design.pattern.builder.*;
 import design.pattern.chainofresponsibility.*;
 import design.pattern.command.*;
+import design.pattern.interpreter.*;
 import design.pattern.iterator.*;
 import design.pattern.memento.*;
 import design.pattern.observer.*;
@@ -31,6 +32,7 @@ public class mainClass {
 		command();
 		memento();
 		state();
+		interpreter();
 	}
 
 	public static void simpleFactoryTest() {
@@ -168,6 +170,12 @@ public class mainClass {
 		context.request();
 		context.request();
 		context.request();
+	}
+	
+	public static void interpreter(){
+		OrExpression or = new OrExpression(new TerminalExpression("Jone"), new TerminalExpression("Marry"));
+		System.out.println("Jone or Marry is male? " + or.interpret("Jone") );
+		System.out.println("Jone or Marry is male? " + or.interpret("Jons") );
 	}
 
 }
