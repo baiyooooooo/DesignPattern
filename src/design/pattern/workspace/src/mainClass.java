@@ -9,6 +9,7 @@ import design.pattern.memento.*;
 import design.pattern.observer.*;
 import design.pattern.prototype.*;
 import design.pattern.simplefactory.*;
+import design.pattern.state.*;
 import design.pattern.strategy.*;
 import design.pattern.templatemethod.*;
 import design.pattern.visitor.*;
@@ -29,6 +30,7 @@ public class mainClass {
 		iterator();
 		command();
 		memento();
+		state();
 	}
 
 	public static void simpleFactoryTest() {
@@ -159,6 +161,13 @@ public class mainClass {
 		
 		originator.setMemento(careTaker.getMemento());
 		originator.showState();
+	}
+	
+	public static void state(){
+		Context context = new Context(new ConcreteStateA());
+		context.request();
+		context.request();
+		context.request();
 	}
 
 }
