@@ -5,6 +5,7 @@ import design.pattern.builder.*;
 import design.pattern.chainofresponsibility.*;
 import design.pattern.command.*;
 import design.pattern.iterator.*;
+import design.pattern.memento.*;
 import design.pattern.observer.*;
 import design.pattern.prototype.*;
 import design.pattern.simplefactory.*;
@@ -27,6 +28,7 @@ public class mainClass {
 		observer();
 		iterator();
 		command();
+		memento();
 	}
 
 	public static void simpleFactoryTest() {
@@ -142,6 +144,21 @@ public class mainClass {
 		Invoker invoker = new Invoker();
 		invoker.setCommand(command);
 		invoker.executeCommand();
+	}
+	
+	public static void memento(){
+		Originator originator = new Originator();
+		originator.setState("Originator initialized");
+		originator.showState();
+		
+		CareTaker careTaker = new CareTaker();
+		careTaker.setMemento(originator.createMemento());
+		
+		originator.setState("Originator Finished");
+		originator.showState();
+		
+		originator.setMemento(careTaker.getMemento());
+		originator.showState();
 	}
 
 }
