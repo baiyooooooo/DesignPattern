@@ -6,6 +6,7 @@ import design.pattern.chainofresponsibility.*;
 import design.pattern.command.*;
 import design.pattern.interpreter.*;
 import design.pattern.iterator.*;
+import design.pattern.mediator.*;
 import design.pattern.memento.*;
 import design.pattern.observer.*;
 import design.pattern.prototype.*;
@@ -33,6 +34,7 @@ public class mainClass {
 		memento();
 		state();
 		interpreter();
+		mediator();
 	}
 
 	public static void simpleFactoryTest() {
@@ -176,6 +178,13 @@ public class mainClass {
 		OrExpression or = new OrExpression(new TerminalExpression("Jone"), new TerminalExpression("Marry"));
 		System.out.println("Jone or Marry is male? " + or.interpret("Jone") );
 		System.out.println("Jone or Marry is male? " + or.interpret("Jons") );
+	}
+	
+	public static void mediator(){
+		User Jone = new User("Jone");
+		User Marry = new User("Marry");
+		Jone.sendMessage("Hello, how are you Marry?");
+		Marry.sendMessage("I am fine, and you Jone?");
 	}
 
 }
