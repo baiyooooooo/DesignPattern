@@ -1,6 +1,7 @@
 package design.pattern.workspace.src;
 
 import design.pattern.abstractfactory.*;
+import design.pattern.adapter.*;
 import design.pattern.builder.*;
 import design.pattern.chainofresponsibility.*;
 import design.pattern.command.*;
@@ -35,6 +36,7 @@ public class mainClass {
 		state();
 		interpreter();
 		mediator();
+		adapter();
 	}
 
 	public static void simpleFactoryTest() {
@@ -185,6 +187,11 @@ public class mainClass {
 		User Marry = new User("Marry");
 		Jone.sendMessage("Hello, how are you Marry?");
 		Marry.sendMessage("I am fine, and you Jone?");
+	}
+	
+	public static void adapter(){
+		Player ChineseCenter = new Translator("Yao Ming", "Center");
+		ChineseCenter.attack();
 	}
 
 }
