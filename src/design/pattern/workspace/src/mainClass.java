@@ -12,6 +12,7 @@ import design.pattern.mediator.*;
 import design.pattern.memento.*;
 import design.pattern.observer.*;
 import design.pattern.prototype.*;
+import design.pattern.proxy.*;
 import design.pattern.simplefactory.*;
 import design.pattern.state.*;
 import design.pattern.strategy.*;
@@ -39,6 +40,7 @@ public class mainClass {
 		mediator();
 		adapter();
 		decorator();
+		proxy();
 	}
 
 	public static void simpleFactoryTest() {
@@ -203,6 +205,12 @@ public class mainClass {
 		decoratorA.setComponent(component);
 		decoratorB.setComponent(decoratorA);
 		decoratorB.operation();
+	}
+	
+	public static void proxy(){
+		RealSubject subject = new RealSubject();
+		Proxy proxy = new Proxy(subject);
+		proxy.request();
 	}
 
 }
