@@ -5,6 +5,7 @@ import design.pattern.adapter.*;
 import design.pattern.builder.*;
 import design.pattern.chainofresponsibility.*;
 import design.pattern.command.*;
+import design.pattern.decorator.*;
 import design.pattern.interpreter.*;
 import design.pattern.iterator.*;
 import design.pattern.mediator.*;
@@ -37,6 +38,7 @@ public class mainClass {
 		interpreter();
 		mediator();
 		adapter();
+		decorator();
 	}
 
 	public static void simpleFactoryTest() {
@@ -192,6 +194,15 @@ public class mainClass {
 	public static void adapter(){
 		Player ChineseCenter = new Translator("Yao Ming", "Center");
 		ChineseCenter.attack();
+	}
+	
+	public static void decorator(){
+		ConcreteComponent component = new ConcreteComponent();
+		ConcreteDecoratorA decoratorA = new ConcreteDecoratorA();
+		ConcreteDecoratorB decoratorB = new ConcreteDecoratorB();
+		decoratorA.setComponent(component);
+		decoratorB.setComponent(decoratorA);
+		decoratorB.operation();
 	}
 
 }
