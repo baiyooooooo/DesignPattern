@@ -6,6 +6,7 @@ import design.pattern.builder.*;
 import design.pattern.chainofresponsibility.*;
 import design.pattern.command.*;
 import design.pattern.decorator.*;
+import design.pattern.facade.Facade;
 import design.pattern.interpreter.*;
 import design.pattern.iterator.*;
 import design.pattern.mediator.*;
@@ -41,6 +42,7 @@ public class mainClass {
 		adapter();
 		decorator();
 		proxy();
+		facade();
 	}
 
 	public static void simpleFactoryTest() {
@@ -211,6 +213,12 @@ public class mainClass {
 		RealSubject subject = new RealSubject();
 		Proxy proxy = new Proxy(subject);
 		proxy.request();
+	}
+	
+	public static void facade(){
+		Facade facade = new Facade();
+		facade.methodA();
+		facade.methodB();
 	}
 
 }
