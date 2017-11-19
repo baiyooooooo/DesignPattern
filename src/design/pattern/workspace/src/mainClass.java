@@ -9,6 +9,7 @@ import design.pattern.command.*;
 import design.pattern.composite.Employee;
 import design.pattern.decorator.*;
 import design.pattern.facade.Facade;
+import design.pattern.flyweight.MessageBoxPool;
 import design.pattern.interpreter.*;
 import design.pattern.iterator.*;
 import design.pattern.mediator.*;
@@ -47,6 +48,7 @@ public class mainClass {
 		facade();
 		bridge();
 		composite();
+		flyweight();
 	}
 
 	public static void simpleFactoryTest() {
@@ -269,6 +271,16 @@ public class mainClass {
 				System.out.println(employee);
 			}
 		}
+	}
+	
+	public static void flyweight(){
+		MessageBoxPool.getMessageBox("error");
+		MessageBoxPool.getMessageBox("error");
+		MessageBoxPool.getMessageBox("error");
+		MessageBoxPool.getMessageBox("warning");
+		MessageBoxPool.getMessageBox("warning");
+		MessageBoxPool.getMessageBox("warning");
+		MessageBoxPool.getMessageBox("warning");
 	}
 
 }
