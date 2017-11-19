@@ -2,6 +2,7 @@ package design.pattern.workspace.src;
 
 import design.pattern.abstractfactory.*;
 import design.pattern.adapter.*;
+import design.pattern.bridge.*;
 import design.pattern.builder.*;
 import design.pattern.chainofresponsibility.*;
 import design.pattern.command.*;
@@ -43,6 +44,7 @@ public class mainClass {
 		decorator();
 		proxy();
 		facade();
+		bridge();
 	}
 
 	public static void simpleFactoryTest() {
@@ -219,6 +221,13 @@ public class mainClass {
 		Facade facade = new Facade();
 		facade.methodA();
 		facade.methodB();
+	}
+	
+	public static void bridge(){
+		Shape redCircle = new Circle(100, 100, 10, new RedCircle());
+		Shape greenCircle = new Circle(10, 15, 17, new GreenCircle());
+		redCircle.draw();
+		greenCircle.draw();
 	}
 
 }
